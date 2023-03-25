@@ -34,7 +34,7 @@
   -webkit-text-size-adjust: 100%;
 }
 
-ul,
-li {
+ul {
   all: unset;
+  list-style: none;
 }

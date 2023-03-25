@@ -13,7 +13,9 @@ function App() {
       </header>
       <main>
         <section className="task-creator">
-          <input type="text" />
+          <input
+            placeholder="Adicione uma nova tarefa"
+            type="text" />
           <button>Criar</button>
         </section>
         <section className="task-list">
