@@ -1,4 +1,4 @@
-import { PlusCircle } from 'phosphor-react'
+import { PlusCircle } from '@phosphor-icons/react'
 
 import logoToDo from './assets/logo.svg'
 import './App.css'
