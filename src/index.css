@@ -2,6 +2,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+
+  font-family: Inter, sans-serif;
+  line-height: 140%;
+  font-weight: 400;
 }
 
 :root {
@@ -23,9 +27,6 @@
   --text-size-small: .875rem;
   --text-size-base: 1rem;
 
-  font-family: Inter, sans-serif;
-  line-height: 140%;
-  font-weight: 400;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

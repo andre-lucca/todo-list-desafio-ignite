@@ -1,6 +1,7 @@
-import './App.css'
+import { PlusCircle } from 'phosphor-react'
 
 import logoToDo from './assets/logo.svg'
+import './App.css'
 
 function App() {
   return (
@@ -16,9 +17,14 @@ function App() {
           <input
             placeholder="Adicione uma nova tarefa"
             type="text" />
-          <button>Criar</button>
+          <button
+            className="new-task-button"
+          >
+            Criar
+            <PlusCircle size={16} />
+          </button>
         </section>
-        <section className="task-list">
+        <section className="task-list-container">
           <div className="task-list-header">
             <p>
               Tarefas criadas
