@@ -1,5 +1,6 @@
 import { PlusCircle } from '@phosphor-icons/react'
 
+import clipboardImg from './assets/clipboard.png'
 import logoToDo from './assets/logo.svg'
 import './App.css'
 
@@ -26,19 +27,21 @@ function App() {
         </section>
         <section className="task-list-container">
           <div className="task-list-header">
-            <p>
+            <div className="task-stats created-tasks">
               Tarefas criadas
-              <span></span>
-            </p>
-            <p>
+              <span>0</span>
+            </div>
+            <div className="task-stats finished-tasks">
               Concluídas
-              <span></span>
-            </p>
+              <span>0</span>
+            </div>
           </div>
-          <ul className="task-container">
-            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, aut!</li>
-            <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ab eveniet adipisci cumque saepe assumenda.</li>
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
+          <ul className="task-container no-tasks">
+            <img src={clipboardImg} />
+            <p>
+              <strong>Você ainda não tem tarefas cadastradas</strong> <br />
+              Crie tarefas e organize seus itens a fazer
+            </p>
           </ul>
         </section>
       </main>
