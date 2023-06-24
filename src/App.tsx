@@ -1,4 +1,9 @@
-import { PlusCircle } from '@phosphor-icons/react'
+import {
+  PlusCircle,
+  CheckCircle,
+  Circle,
+  Trash
+} from '@phosphor-icons/react'
 
 import clipboardImg from './assets/clipboard.png'
 import logoToDo from './assets/logo.svg'
@@ -36,12 +41,49 @@ function App() {
               <span>0</span>
             </div>
           </div>
-          <ul className="task-container no-tasks">
-            <img src={clipboardImg} />
+          <ul className="task-container .no-tasks">
+            {/* <img src={clipboardImg} />
             <p>
               <strong>Você ainda não tem tarefas cadastradas</strong> <br />
               Crie tarefas e organize seus itens a fazer
-            </p>
+            </p> */}
+            <li className="task">
+              <div className="icon-container">
+                <div className="undone-icon-bg" />
+                <Circle
+                  className="undone-icon"
+                  size={24}
+                />
+              </div>
+              <p>
+                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+              </p>
+              <div className="trash-icon-container">
+                <Trash
+                  className="trash-icon"
+                  size={24}
+                />
+              </div>
+            </li>
+            <li className="task done">
+              <div className="icon-container">
+                <div className="done-icon-bg" />
+                <CheckCircle
+                  className="done-icon"
+                  weight="fill"
+                  size={24}
+                />
+              </div>
+              <p>
+                Integer urna interdum massa libero auctor neque turpis turpis semper. Duis vel sed fames integer.
+              </p>
+              <div className="trash-icon-container">
+                <Trash
+                  className="trash-icon"
+                  size={24}
+                />
+              </div>
+            </li>
           </ul>
         </section>
       </main>
