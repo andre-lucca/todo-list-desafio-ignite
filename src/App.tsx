@@ -23,8 +23,10 @@ function App() {
   const handleAddTask = (): void => {
     const taskInput = taskInputRef.current as HTMLInputElement
 
+    const lastIdUsed = tasks.at(-1)?.id ?? 0
+
     const newTask: Task = {
-      id: tasks.length + 1,
+      id: lastIdUsed + 1,
       done: false,
       description: taskInput.value
     }
