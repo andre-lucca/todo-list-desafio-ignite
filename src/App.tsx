@@ -32,6 +32,57 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
+  const handleToggleTask = (task: Task, taskIndex: number): void => {
+    const newTasks = [...tasks]
+
+    newTasks[taskIndex] = {
+      ...task,
+      done: !task.done
+    }
+
+    setTasks(newTasks)
+  }
+
+  const mapTask = (task: Task, taskIndex: number) => {
+    const taskClass = task.done ? 'task done' : 'task'
+    const iconBgClass = task.done ? 'done-icon-bg' : 'undone-icon-bg'
+    const iconClass = task.done ? 'done-icon' : 'undone-icon'
+
+    return (
+      <li
+        key={task.id}
+        className={taskClass}
+      >
+        <div
+          className="icon-container"
+          onClick={() => handleToggleTask(task, taskIndex)}
+        >
+          <div className={iconBgClass} />
+          {
+            task.done
+              ? <CheckCircle
+                className={iconClass}
+                weight="fill"
+                size={24} />
+
+              : <Circle
+                className={iconClass}
+                size={24} />
+          }
+        </div>
+        <p>
+          {task.description}
+        </p>
+        <div className="trash-icon-container">
+          <Trash
+            className="trash-icon"
+            size={24}
+          />
+        </div>
+      </li>
+    )
+  }
+
   return (
     <div className="App">
       <header>
@@ -66,57 +117,16 @@ function App() {
             </div>
           </div>
           <ul className="task-container .no-tasks">
-            {/* <img src={clipboardImg} />
-            <p>
-              <strong>Você ainda não tem tarefas cadastradas</strong> <br />
-              Crie tarefas e organize seus itens a fazer
-            </p> */}
             {
-              tasks.map((task) => task.done ? (
-                <li
-                  key={task.id}
-                  className="task done"
-                >
-                  <div className="icon-container">
-                    <div className="done-icon-bg" />
-                    <CheckCircle
-                      className="done-icon"
-                      weight="fill"
-                      size={24}
-                    />
-                  </div>
+              tasks.length < 0
+                ? <>
+                  <img src={clipboardImg} />
                   <p>
-                    {task.description}
-                  </p>
-                  <div className="trash-icon-container">
-                    <Trash
-                      className="trash-icon"
-                      size={24}
-                    />
-                  </div>
-                </li>
-              ) : (
-                <li
-                  key={task.id}
-                  className="task"
-                >
-                  <div className="icon-container">
-                    <div className="undone-icon-bg" />
-                    <Circle
-                      className="undone-icon"
-                      size={24}
-                    />
-                  </div>
-                  <p>
-                    {task.description}
-                  </p>
-                  <div className="trash-icon-container">
-                    <Trash
-                      className="trash-icon"
-                      size={24}
-                    />
-                  </div>
-                </li>))
+                    <strong>Você ainda não tem tarefas cadastradas</strong> <br />
+                    Crie tarefas e organize seus itens a fazer
+                  </p> </>
+
+                : tasks.map(mapTask)
             }
           </ul>
         </section>

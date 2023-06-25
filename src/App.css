@@ -191,7 +191,7 @@ main {
   height: 18px;
 
   border-radius: 50%;
-  transition: background-color 0.2s, opacity 0.2s;
+  transition: opacity 0.2s;
 }
 
 .undone-icon-bg {
@@ -242,11 +242,11 @@ main {
 
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
 
 .trash-icon-container:hover {
   background-color: var(--gray-400);
+  transition: background-color 0.2s;
 }
 
 .trash-icon-container:hover .trash-icon {
