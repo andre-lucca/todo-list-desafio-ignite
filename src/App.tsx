@@ -109,24 +109,37 @@ function App() {
           <div className="task-list-header">
             <div className="task-stats created-tasks">
               Tarefas criadas
-              <span>0</span>
+              <span>
+                {
+                  tasks.length
+                }
+              </span>
             </div>
             <div className="task-stats finished-tasks">
               Concluídas
-              <span>0</span>
+              <span>
+                {
+                  tasks.length > 0
+                    ? `${tasks.filter(task => task.done).length} de ${tasks.length}`
+                    : 0
+                }
+              </span>
             </div>
           </div>
-          <ul className="task-container .no-tasks">
+          <ul className={`task-container ${tasks.length < 1 && 'no-tasks'}`}>
             {
-              tasks.length < 0
-                ? <>
-                  <img src={clipboardImg} />
-                  <p>
-                    <strong>Você ainda não tem tarefas cadastradas</strong> <br />
-                    Crie tarefas e organize seus itens a fazer
-                  </p> </>
-
-                : tasks.map(mapTask)
+              tasks.length > 0
+                ? (
+                  tasks.map(mapTask)
+                ) : (
+                  <>
+                    <img src={clipboardImg} />
+                    <p>
+                      <strong>Você ainda não tem tarefas cadastradas</strong> <br />
+                      Crie tarefas e organize seus itens a fazer
+                    </p>
+                  </>
+                )
             }
           </ul>
         </section>
