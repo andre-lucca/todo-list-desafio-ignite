@@ -43,7 +43,13 @@ function App() {
     setTasks(newTasks)
   }
 
-  const mapTask = (task: Task, taskIndex: number) => {
+  const handleDeleteTask = (taskId: number): void => {
+    setTasks([
+      ...tasks.filter(task => task.id !== taskId)
+    ])
+  }
+
+  const mapTask = (task: Task, taskIndex: number): JSX.Element => {
     const taskClass = task.done ? 'task done' : 'task'
     const iconBgClass = task.done ? 'done-icon-bg' : 'undone-icon-bg'
     const iconClass = task.done ? 'done-icon' : 'undone-icon'
@@ -73,7 +79,10 @@ function App() {
         <p>
           {task.description}
         </p>
-        <div className="trash-icon-container">
+        <div
+          className="trash-icon-container"
+          onClick={() => handleDeleteTask(task.id)}
+        >
           <Trash
             className="trash-icon"
             size={24}
